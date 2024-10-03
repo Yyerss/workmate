@@ -124,8 +124,8 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Cook API',
-    'DESCRIPTION': 'API documentation for Cook Project',
+    'TITLE': 'Kitten API',
+    'DESCRIPTION': 'API documentation for Kitten Project',
     'VERSION': '1.0.0',
     'COMPONENTS': {
         'SECURITY_SCHEMES': {

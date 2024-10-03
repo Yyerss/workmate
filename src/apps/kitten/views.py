@@ -1,10 +1,9 @@
-from django.shortcuts import render
-from rest_framework.exceptions import PermissionDenied
 from .models import Kitten, Breed
 from .serializers import KittenSerializer, KittenWriteSerializer, BreedSerializer
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics
 from rest_framework import filters
+from .mixins import KittenQuerysetMixin, OwnerPermissionMixin
 
 
 # Create your views here.
@@ -13,15 +12,13 @@ class BreedListView(generics.ListAPIView):
     serializer_class = BreedSerializer
 
 
-class KittenListView(generics.ListAPIView):
-    queryset = Kitten.objects.select_related('breed').prefetch_related('ratings').all()
+class KittenListView(KittenQuerysetMixin, generics.ListAPIView):
     serializer_class = KittenSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['breed__name']
 
 
-class KittenDetailView(generics.RetrieveAPIView):
-    queryset = Kitten.objects.select_related('breed', 'owner').prefetch_related('ratings').all()
+class KittenDetailView(KittenQuerysetMixin, generics.RetrieveAPIView):
     serializer_class = KittenSerializer
 
 
@@ -33,25 +30,20 @@ class KittenCreateView(generics.CreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class KittenUpdateView(generics.RetrieveUpdateAPIView):
-    queryset = Kitten.objects.all()
+class KittenUpdateView(KittenQuerysetMixin, OwnerPermissionMixin, generics.RetrieveUpdateAPIView):
     serializer_class = KittenWriteSerializer
     permission_classes = [IsAuthenticated]
 
     def perform_update(self, serializer):
-        if self.get_object().owner == self.request.user:
-            serializer.save()
-        else:
-            raise PermissionDenied('You do not have permission to edit this kitten.')
+        instance = self.get_object()
+        self.check_owner_permission(instance)
+        serializer.save()
 
 
-class KittenDeleteView(generics.DestroyAPIView):
-    queryset = Kitten.objects.all()
+class KittenDeleteView(KittenQuerysetMixin, OwnerPermissionMixin, generics.DestroyAPIView):
     serializer_class = KittenWriteSerializer
     permission_classes = [IsAuthenticated]
 
     def perform_destroy(self, instance):
-        if instance.owner == self.request.user:
-            instance.delete()
-        else:
-            raise PermissionDenied('You do not have permission to delete this kitten.')
+        self.check_owner_permission(instance)
+        instance.delete()
