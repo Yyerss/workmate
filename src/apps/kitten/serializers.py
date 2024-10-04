@@ -26,6 +26,6 @@ class KittenSerializer(serializers.ModelSerializer):
         model = Kitten
         fields = ['id', 'breed', 'color', 'age_in_months', 'description', 'owner', 'average_rating']
 
-    def get_average_rating(self, obj):
+    def get_average_rating(self, obj) -> float:
         average = obj.ratings.aggregate(Avg('rating'))['rating__avg']
         return round(average, 2) if average is not None else None
