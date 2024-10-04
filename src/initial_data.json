@@ -1,0 +1,182 @@
+[
+    {
+        "model": "kitten.breed",
+        "pk": 1,
+        "fields": {
+            "name": "Siamese"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 2,
+        "fields": {
+            "name": "Persian"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 3,
+        "fields": {
+            "name": "Maine Coon"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 4,
+        "fields": {
+            "name": "Bengal"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 5,
+        "fields": {
+            "name": "Sphynx"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 6,
+        "fields": {
+            "name": "Ragdoll"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 7,
+        "fields": {
+            "name": "Scottish Fold"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 8,
+        "fields": {
+            "name": "Abyssinian"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 9,
+        "fields": {
+            "name": "Birman"
+        }
+    },
+    {
+        "model": "kitten.breed",
+        "pk": 10,
+        "fields": {
+            "name": "Russian Blue"
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 1,
+        "fields": {
+            "breed": 1,
+            "color": "White",
+            "age_in_months": 3,
+            "description": "A playful kitten",
+            "owner": 1
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 2,
+        "fields": {
+            "breed": 2,
+            "color": "Black",
+            "age_in_months": 4,
+            "description": "A curious kitten",
+            "owner": 2
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 3,
+        "fields": {
+            "breed": 3,
+            "color": "Gray",
+            "age_in_months": 2,
+            "description": "A sleepy kitten",
+            "owner": 1
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 4,
+        "fields": {
+            "breed": 4,
+            "color": "Orange",
+            "age_in_months": 6,
+            "description": "A friendly kitten",
+            "owner": 2
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 5,
+        "fields": {
+            "breed": 5,
+            "color": "Brown",
+            "age_in_months": 1,
+            "description": "A brave kitten",
+            "owner": 1
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 6,
+        "fields": {
+            "breed": 6,
+            "color": "Mixed",
+            "age_in_months": 7,
+            "description": "A shy kitten",
+            "owner": 2
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 7,
+        "fields": {
+            "breed": 7,
+            "color": "Black",
+            "age_in_months": 5,
+            "description": "A playful kitten",
+            "owner": 1
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 8,
+        "fields": {
+            "breed": 8,
+            "color": "Gray",
+            "age_in_months": 8,
+            "description": "A curious kitten",
+            "owner": 2
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 9,
+        "fields": {
+            "breed": 9,
+            "color": "Orange",
+            "age_in_months": 9,
+            "description": "A friendly kitten",
+            "owner": 1
+        }
+    },
+    {
+        "model": "kitten.kitten",
+        "pk": 10,
+        "fields": {
+            "breed": 10,
+            "color": "White",
+            "age_in_months": 10,
+            "description": "A brave kitten",
+            "owner": 2
+        }
+    }
+]
